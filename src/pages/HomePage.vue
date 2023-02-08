@@ -8,7 +8,7 @@
                     {{ app.description }}
                 </div>
                 <div class="mt-2 card-bottom">
-                    <router-link to="/scroll-app" class="app-link">Accueil</router-link>
+                    <router-link to="/mark-down" class="app-link">Voir...</router-link>
                 </div>
             </div>
         </div>
@@ -22,8 +22,8 @@ export default {
             applicationsList: [
                 {
                     id: '1',
-                    title: 'Application de scroll',
-                    description: 'Lorem ipsum firte treuu ytr buit dfgd '
+                    title: 'Application de mark down',
+                    description: `it's an application that transform a mark-down text in to an html code`
                 }
             ]
         }
