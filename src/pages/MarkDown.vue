@@ -2,22 +2,32 @@
   <div class="container flex-column h-80">
     <h2>Application de mark-down</h2>
     <div class="flex grow-1 flex-btw">
-        <textarea id="in" class="field" v-model="textIn"></textarea>
-        <textarea id="out" class="field" v-model="textOut"></textarea>
+        <textarea id="in" class="field" :value="textIn" @input="update"></textarea>
+        <article id="out" class="field" v-html="textOut" ></article>
     </div>
   </div>
 </template>
 
 <script>
+import { parse} from "marked";
+import debounce from '../utilities/mixins/debounce';
 export default {
+    mixins: [debounce],
     data() {
         return {
-            textIn: ''
+            textIn: '',
+            timeOut: ''
         }
     },
     computed : {
         textOut() {
-            return this.textIn;
+            return parse(this.textIn);
+        }
+    },
+    methods: {
+        update(e) {
+            const task = () => { this.textIn = e.target.value};
+            this.debounce(task, 600);
         }
     }
 }
