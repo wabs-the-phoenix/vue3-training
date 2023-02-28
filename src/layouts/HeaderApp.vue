@@ -6,7 +6,7 @@
         :key="item.to" :to="item.to"
         class="nav-link">{{ item.title }}</router-link>
       </nav>
-      <button class="modal-btn" type="button">Login</button>
+      <button class="modal-btn" type="button" @click="$emit('on-open-modal')">Login</button>
     </div>
   </header>
 </template>
