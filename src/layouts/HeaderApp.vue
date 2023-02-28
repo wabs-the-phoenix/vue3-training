@@ -1,10 +1,13 @@
 <template>
   <header>
-    <nav class="container">
+    <div class="container header-content">
+      <nav>
         <router-link v-for="item in items" 
         :key="item.to" :to="item.to"
         class="nav-link">{{ item.title }}</router-link>
-    </nav>
+      </nav>
+      <button class="modal-btn" type="button">Login</button>
+    </div>
   </header>
 </template>
 
@@ -34,4 +37,17 @@ export default {
     background-color: #5555ff;
     padding: 20px 0;
   }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .modal-btn {
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 4px;
+    color: #5555ff;
+    border: 1px solid white;
+  }
+
 </style>
